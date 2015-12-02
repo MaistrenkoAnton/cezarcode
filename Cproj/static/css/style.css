@@ -1,0 +1,26 @@
+body{
+}
+#id_shifr{
+    float: left;
+    resize: none;
+    width: 300px;
+}
+#id_deshifr{
+    float: right;
+    resize: none;
+    width: 300px;
+}
+#id_label{
+    display: block;
+    margin: 10px;
+}
+#wrapper{
+    width: 750px;
+}
+#id_ROT{
+    width: 50px;
+}
+label{
+    background-color: grey;
+    margin: auto;
+}

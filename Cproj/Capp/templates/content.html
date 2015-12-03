@@ -2,15 +2,15 @@
 
 {% block content %}
     <div class="container" id="wrapper">
-        <form action="/" method="post">
+
             {% csrf_token %}
                 {% for field in form %}
                     {{ field.errors }}{{ field.label }}{{ field }}
                 {% endfor %}
-            <textarea id="id_deshifr" rows="10" class="form-control" readonly>{{ data }}</textarea>
-            <input type="submit" name="shifr_but" value="Зашифровать">
-            <input type="submit" name="deshifr_but" value="Расшифровать">
-        </form>
+            <textarea id="id_deshifr" rows="10" class="form-control" ng-model="text_deshifr" readonly>{{ data }}</textarea>
+            <input type="submit" ng-click="ajax('shifr')" value="Зашифровать">
+            <input type="submit" ng-click="ajax('deshifr')" value="Расшифровать">
+
     </div>
 
 {% endblock %}

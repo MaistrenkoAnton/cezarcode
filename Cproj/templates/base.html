@@ -6,13 +6,15 @@
     <title>Hello</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script src="{% static 'js/js.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-
-{% block content %}
-{% endblock %}
-
+    <div ng-app="myApp" ng-controller="myCtrl" >
+        {% block content %}
+        {% endblock %}
+    {% verbatim %}{{ title }}{% endverbatim %}
+    </div>
 </body>
 </html>

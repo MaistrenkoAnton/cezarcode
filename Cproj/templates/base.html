@@ -9,12 +9,43 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
     <script src="{% static 'js/js.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <style type="text/css">
+    #container, #sliders {
+        min-width: 310px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    #container {
+        height: 400px;
+    }
+    </style>
+
 </head>
 <body>
     <div ng-app="myApp" ng-controller="myCtrl" >
+    <div id="message" class="container">
+
+    </div>
         {% block content %}
         {% endblock %}
-    {% verbatim %}{{ title }}{% endverbatim %}
     </div>
+    <script src="{% static 'charts/js/highcharts.js' %}"></script>
+    <script src="{% static 'charts/js/highcharts-3d.js' %}"></script>
+    <script src="{% static 'charts/js/modules/exporting.js' %}"></script>
+
+    <div id="container"></div>
+    <div id="sliders">
+        <table>
+            <tr><td>Alpha Angle</td><td><input id="R0" type="range" min="0" max="45" value="15"/> <span id="R0-value" class="value"></span></td></tr>
+            <tr><td>Beta Angle</td><td><input id="R1" type="range" min="0" max="45" value="15"/> <span id="R1-value" class="value"></span></td></tr>
+        </table>
+    </div>
+    <script>
+
+
+    </script>
 </body>
 </html>
+
+

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from .forms import ShifrForm
+from models import Note
 
 
 def index(request):
@@ -22,10 +23,14 @@ def index(request):
                 new_data += low_letters_step[(ord(letter)-97) % 26]
             else:
                 new_data += letter
-        return HttpResponse(JsonResponse({'text': new_data}))
-    form = ShifrForm()
-    context = {
-        'form': form,
-    }
-    return render(request, 'content.html', context)
+        note = Note(shifr=request.GET.get('text'), ROT=int(request.GET.get('code')), label=request.GET.get('label'))
+        note.save()
+
+        return HttpResponse(JsonResponse({'text': new_data }))
+    else:
+        form = ShifrForm()
+        context = {
+            'form': form,
+        }
+        return render(request, 'content.html', context)
 
